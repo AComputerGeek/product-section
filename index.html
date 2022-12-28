@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+	<!--
+	Author: 	Amir Armion
+	Version: 	V.01
+	-->
+	<head>
+		<title>Product Section</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+		<link rel="manifest" href="favicon/site.webmanifest">
+		<meta name="msapplication-TileColor" content="#da532c">
+		<meta name="theme-color" content="#ffffff">
+
+		<!-- CSS Stylesheet -->
+		<link href="css/styles.css" rel="stylesheet" />
+
+		<!-- Scripts -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" defer></script>
+		<script src="scripts/assignment07.js" defer></script>
+	</head>
+
+	<body>
+		<div id="wrapper">
+            <header>
+				<div>
+					<h1>Product Section</h1>
+				</div>
+            </header>
+
+			<!-- Main -->
+
+			<main>
+				<section>
+					<h2>Clothes:</h2>
+
+					<!-- Gallery -->
+					<div class="container">
+						<div class="gallery">
+							<div class="main-slide ">
+								<img src="images/t-shirt-black-no-model.jpg" alt="images/t-shirt-black-no-model.jpg" id="slide">
+							</div>
+		
+							<div class="thumbs" id="thumbs">
+								<a class="selected" href="images/t-shirt-black-no-model.jpg">
+									<img src="images/t-shirt-black-no-model.jpg" alt="images/t-shirt-black-no-model.jpg">
+								</a>
+								<a href="images/t-shirt-black-front.jpg">
+									<img src="images/t-shirt-black-front.jpg" alt="images/t-shirt-black-front.jpg">
+								</a>
+								<a href="images/t-shirt-black-back.jpg">
+									<img src="images/t-shirt-black-back.jpg" alt="images/t-shirt-black-back.jpg">
+								</a>
+							</div>
+						</div>				
+	
+						<!-- Form -->
+						<div>
+							<form 	action="thank-you.html"
+									method="get"
+									id="my-form"
+									class="placeholders comboboxes">
+	
+								<!-- Quantity -->
+								<div class="form-section radio-style">
+									<p><b>Price: </b>$20.00</p>
+									<div class="qty-label">
+										<label	class="qty" for="quantity">Quantity: </label>
+										<input 	type=number	
+												name="quantity"
+												id="quantity" 
+												value="1"
+												min="1"
+												max="1000"/>
+									</div>
+									<p><b>Total: </b>$<span id="total-price">20.00</span></p>
+								</div>
+	
+								<!-- Color -->
+								<div class="form-section radio-style">
+									<p><b>Color: </b><span id="color">Black</span></p>
+									<div>
+										<input 	type="radio" 
+												id="black" 
+												name="color"
+												value="Black" 
+												checked="checked"/>	
+										<label 	for="black">Black</label>
+									</div>	
+	
+									<div>
+										<input 	type="radio" 
+												id="red" 
+												name="color"
+												value="Red" />	
+										<label 	for="red">Red</label>
+									</div>	
+	
+									<div>
+										<input 	type="radio" 
+												id="grey" 
+												name="color"
+												value="Grey" />	
+										<label 	for="grey">Grey</label>
+									</div>	 
+								</div>
+	
+								<!-- Size -->
+								<div class="form-section radio-style">
+									<p><b>Size: </b><span id="size">Choose...</span></p>
+									<div>
+										<input 	type="radio" 
+												id="small" 
+												name="size"
+												value="Small" />	
+										<label 	for="small">Small S</label>
+									</div>	
+	
+									<div>
+										<input 	type="radio" 
+												id="medium" 
+												name="size"
+												value="Medium" />	
+										<label 	for="medium">Medium M</label>
+									</div>	
+	
+									<div>
+										<input 	type="radio" 
+												id="large" 
+												name="size"
+												value="Large" />	
+										<label 	for="large">Large L</label>
+									</div>	 
+								</div>
+	
+								<!-- Button -->
+								<div>
+									<input type="submit" id="submit" class="disabled-button" disabled="disabled" value="Choose A Size!" />
+								</div>
+							</form>
+						</div>
+					</div>					
+				</section>				
+			</main>
+
+			<!-- End -->
+
+			<footer>
+				<small class="footer-adj black">&copy; Web Development with JavaScript</small>
+			</footer>
+		</div>
+	</body>
+</html>

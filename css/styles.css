@@ -1,0 +1,772 @@
+/*
+styles.css
+*/
+
+/* 
+--------------
+Browser Resets
+--------------
+*/
+@import url("./normalize.css");
+
+/* 
+---------
+Font Face
+---------
+*/
+@font-face 
+{
+    font-family: 'open_sansregular';
+    src: url('../fonts/opensans-regular-webfont.woff2') format('woff2'),
+         url('../fonts/opensans-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face 
+{
+    font-family: 'bree_serifregular';
+    src: url('../fonts/breeserif-regular-webfont.woff2') format('woff2'),
+         url('../fonts/breeserif-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face 
+{
+    font-family: 'cantarellregular';
+    src: url('cantarell-regular-webfont.woff2') format('woff2'),
+         url('cantarell-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html 
+{
+	box-sizing: border-box;
+	font-size: 1rem;
+	font-family: "bree_serifregular", arial, sans-serif;
+    scroll-behavior: smooth;
+}
+
+*, *:before, *:after 
+{
+	box-sizing: inherit;
+}
+
+body
+{
+    font-family: "open_sansregular", tahoma, serif;
+	background-color: gray;	
+	margin: 0px;
+	color: #05445E;
+
+    background-image: url("../images/main-background.jpg");
+    background-repeat: no-repeat;	
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+:root
+{
+    /* page specific colors */    
+    --main-color: rgb(37,44,88);
+    --main-color-transparent: rgba(37,44,88, .25);    
+    --second-color: rgb(215,114,124);    
+    --second-color-transparent: rgba(215,114,124, 0.25);
+    
+    /* universal palette */
+    --dark-color: #242424;             /* near-but-not black */
+    --light-color: rgb(245, 245, 245); /* not-quite white*/    
+    --code-color: rgb(233, 233, 233);  /* code examples stand out from block text */
+    --bad-color: rgb(85, 0, 0);        /* red means 'it's time to panic!' */  
+    --good-color: rgb(22, 75, 22);     /* green means 'let's rock!' */    
+
+    /* fonts */
+    --heading-font-face: "leaguespartan-bold-webfont";
+    --block-text-font-face: "fira_sansregular";
+}
+
+/* 
+------
+Header 
+------
+*/
+header
+{
+    background-color: #8cffff;
+    height: 90px;
+}
+
+main
+{	
+    background-color: white;
+    padding: 10px;
+    flex: 1;
+}
+
+section
+{
+    background-color: white;
+    border: solid 2px #2FF3E0;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+h1
+{
+    font-family: "bree_serifregular", "open_sansregular", arial, sans-serif;
+    padding-left: 20px;
+    line-height: 55px;
+    font-size: 1.4rem;
+}
+
+h2
+{
+    font-size: 1.3rem;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    color: #1A4A81;
+}
+
+/* 
+-----
+Forms 
+-----
+*/
+form 
+{
+    padding: 8px;        
+    background-color: white;
+    margin-bottom: 10px;
+    color: #05445E;
+    width: 100%;
+    max-width: 300px;
+    margin: auto;
+}
+
+.input-label-group
+{      
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: row;
+    font-size: 0.7rem;
+    width: 100%; /* fill space */
+}
+
+.input-label-group input
+{    
+    border-radius: 5px;    
+    padding: 4px 5px;
+    font-weight: bold;
+    color: var(--main-color);
+    margin-bottom: 2px;
+    margin-left: 80px;
+    background-image: none; 
+    width: 100%; /* fill space */ 
+    text-align: left;
+}
+
+.input-label-group label
+{
+    position: absolute;
+
+    color: var(--main-color);
+    font-weight: bold;    
+    border: solid 1px var(--main-color);
+    border-radius: 5px;
+    padding: 2px 2px;
+    
+    margin: 3px 0px; 
+    margin-right: 5px; 
+    background-image: none;
+    width: 120px;
+    max-width: 190px;  
+    text-align: left;
+    font-size: 0.8rem;
+}
+
+select
+{            
+    width: 100%; /* fill space */
+    border: solid 2px rgb(122, 122, 122);
+    border-radius: 5px;
+    padding: 3px 4px;
+    font-weight: bold;
+    margin-left: 80px;
+}
+
+input[type=number]
+{
+    width: 60px;
+    border-radius: 5px;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button 
+{  
+    opacity: 1;
+}
+
+input[type='checkbox']
+{
+    /* 
+    these rules useless in most browsers!
+    we cannot directly style checkbox or radio button colors.
+    see the later example page for dealing with this
+    */
+    background-color: yellow;
+    padding: 10px;
+}
+
+input[type='submit'], input[type='reset']
+{
+    border-radius: 5px;
+    background-color: rgb(157, 250, 255);
+    color: #7D2AE8;
+    border: solid 2px rgb(122, 122, 122);
+    font-weight: bolder;
+    font-size: 0.85rem;
+    padding: 5px 7px 6px 7px;
+    display: block;
+    margin: 20px auto;
+    margin-bottom: 5px;
+    justify-content: center;
+}
+
+input[type='submit']:hover, input[type='reset']:hover,
+input[type='submit']:focus, input[type='reset']:focus
+{
+    border: solid 2px rgb(122, 122, 122);
+    background-color: #7D2AE8;
+    color: white;
+    cursor: pointer;
+}
+
+.stylish_inputs label
+{
+    background-color: var(--second-color);
+}
+
+.stylish_inputs input
+{
+	font-weight: bold;
+	
+	padding: 3px 10px;
+	border: solid 1px var(--main-color);
+	border-radius: 10px;
+	box-shadow: 2px 2px 2px var(--main-color);
+	color: var(--main-color);
+	background: linear-gradient(#fff, #fff, #b4d6fc);
+}
+
+#submit_button_styles
+{	
+	color: white;	
+	background: linear-gradient(#d5200d, #bf837d,  #991608, #c01d0b, #c01d0b, #d5200d);
+	font-weight: bold;
+	width: 100px;
+	border-radius: 90px;
+	border-color: #991608;
+	border-top-color: #d5200d;		
+	box-shadow: 1px 1px 1px rgb(40,40,40);
+	cursor: pointer;	
+}
+
+#submit_button_styles:hover, #submit_button_styles:focus
+{
+	filter: brightness(1.5);
+}
+
+#submit_button_styles:active
+{
+	transform: scale(.95);
+}
+
+option
+{
+    font-weight: bold;
+}
+
+/* 
+------
+Footer
+------
+*/
+footer
+{
+    background-color: #8cffff;
+    height: 60px;
+    padding: 0px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.footer-adj
+{
+    font-size: 0.85rem;
+    text-align: center;
+    margin: 0px;
+}
+
+/* 
+------
+a link
+------
+*/
+a:link
+{
+    color: #7D2AE8;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-decoration: underline;
+
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+a:hover
+{
+    color: rgb(59, 191, 243);
+    text-decoration: underline;
+}
+
+a:visited
+{
+    color: gray;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a:focus
+{
+    color: red;
+}
+
+.form-section
+{
+    padding: 12px;
+    margin: 10px auto;
+    border: solid 2px rgb(162, 162, 162);
+    border-radius: 10px;
+    max-width: 65%;
+}
+
+.form-section p
+{
+    margin: 0px 0px 8px;
+}
+
+form .disabled-button, 
+form .disabled-button:hover, 
+form .disabled-button:focus, 
+form .disabled-button:active
+{
+    background-color: rgb(157, 250, 255);
+    color: #7D2AE8;
+    opacity: 0.6;
+    cursor: default;
+}
+
+/* 
+Gallery
+*/
+.gallery 
+{
+    padding: 10px;
+    background-color: rgb(157, 250, 255);
+    max-width: 460px;
+    margin: 0 auto 10px;
+}
+
+.main-slide 
+{
+    margin-bottom: 20px;
+}
+
+.main-slide img 
+{
+    display: block;
+    width: 100%;
+    border: solid 5px #00dfdf;
+}
+
+.thumbs 
+{
+    display: flex;
+}
+
+.thumbs a 
+{
+    flex: 1;
+    margin-right: 6px;
+}
+
+.thumbs img 
+{
+    display: block;
+    width: 100%;
+}
+
+.thumbs a:last-child 
+{
+    margin-right: 0;
+}
+
+.selected
+{
+    border-bottom: solid 3px #009a9a;
+}
+
+/* 
+------------
+Radio Button
+------------
+*/
+.radio-style label
+{
+    display: inline-block;
+    margin-left: 3px;
+    margin-bottom: 2px;
+    padding-top: 3px;
+    font-size: 0.95rem;
+}
+
+.radio-style label:before
+{
+    content: ""; 
+    position: absolute;      
+}
+
+/* 
+--------------
+Quantity Input
+--------------
+*/
+.qty-label
+{
+    margin: 10px 0px;
+    margin-left: 0px;
+}
+
+.qty-label .qty
+{
+    margin-left: 0px;
+    margin-right: 4px;
+}
+
+.no-error
+{
+    font-size: 1.5rem;
+    background-color: rgb(225, 255, 225);
+    padding: 40px;
+    border: solid 2px rgb(0, 197, 0);
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* 
+-----------
+ID Selector
+-----------
+*/
+#wrapper
+{
+    border-left: solid 2px rgb(200, 200, 200);
+    border-right: solid 2px rgb(200, 200, 200);
+    max-width: 900px;
+    margin: 0px auto ;
+    background-color: lightgray;
+
+    display: grid;
+    min-height: 100vh;
+    grid-template-rows: auto 1fr auto;
+}
+
+/* 
+==========
+All Medias 
+==========
+*/
+
+/* --------------------------- min-width: 320px  --------------------------- */
+@media (min-width: 320px)
+{ 
+    section p
+    {
+        font-size: 0.95rem;
+        line-height: 20px;
+        text-align: left;
+        color: #05445E;
+        margin: 15px 0px;
+    }
+
+    .no-error
+    {
+        font-size: 0.85rem;
+        padding: 20px 5px;
+    }
+}
+
+/* --------------------------- min-width: 500px  --------------------------- */
+@media (min-width: 500px)
+{
+    header 
+    {
+        height: 100px;
+    }
+
+    main 
+    {
+        padding: 15px;
+    }
+
+    section
+    {
+        padding: 15px;
+        border-radius: 10px;
+    }
+
+    h1
+    {
+        padding-left: 25px;
+        line-height: 65px;
+        font-size: 1.5rem;
+    }
+
+    h2
+    {
+        padding-left: 0px;
+        margin-top: 15px;
+        margin-bottom: 25px;
+        color: #1A4A81;
+        padding-left: 0px;
+        font-size: 1.4rem;
+    }
+
+    section p 
+    {
+        font-size: 1rem;
+    }
+
+    form 
+    {
+        max-width: 400px;
+        padding: 15px;
+    }
+
+    .form-section
+    {
+        padding: 15px;
+        margin-bottom: 15px;
+        border: solid 2px rgb(162, 162, 162);
+        border-radius: 10px;
+        max-width: 50%;
+    }
+
+    input[type='submit']
+    {
+        border-radius: 5px;
+        background-color: rgb(157, 250, 255);
+        color: #7D2AE8;
+        border: solid 2px rgb(122, 122, 122);
+        font-weight: bolder;
+        padding: 7px 9px 8px 9px;
+        display: block;
+        margin: 25px auto;
+        margin-bottom: 0px;
+    }
+
+    .input-label-group input, .input-label-group select
+    {
+        margin-left: 90px;
+        padding: 5px 5px;
+        font-size: 0.8rem;
+    }
+
+    .input-label-group select
+    {
+        padding: 4px 5px;
+    }
+
+    .input-label-group label 
+    {
+        font-size: 0.9rem;
+    }
+
+    input[type='submit'], input[type='reset']
+    {
+        font-size: 0.95rem;
+    }
+
+    .radio-style label
+    {
+        font-size: 1rem;
+    }
+
+    .gallery 
+    {
+        padding: 15px;
+        max-width: 490px;
+        margin: 0 auto 15px;
+    }
+
+    .selected
+    {
+        border-bottom: solid 5px #009a9a;
+    }
+
+    select, option 
+    {
+        font-size: 0.8rem;
+    }
+
+    footer 
+    {
+        height: 70px;
+    }
+
+    .footer-adj
+    {
+        font-size: 0.95rem;
+    }
+
+    .no-error
+    {
+        font-size: 1rem;
+    }
+}
+
+/* --------------------------- min-width: 900px  --------------------------- */
+@media (min-width: 900px)
+{
+    header 
+    {
+        height: 110px;
+    }
+
+    main
+    {
+        padding: 25px;
+    }
+
+    section 
+    {
+        padding: 25px;
+    }
+
+    section p
+    {
+        margin-bottom: 20px;
+        font-size: 1.1rem;
+        line-height: 25px;
+    }
+
+    h1
+    {
+        padding-left: 35px;
+        line-height: 70px;
+        font-size: 1.6rem;
+    }
+
+    h2
+    {
+        font-size: 1.5rem;
+        color: #1A4A81;
+        margin-top: 10px;
+        margin-bottom: 30px
+    }
+
+    form 
+    {
+        max-width: 440px;
+        padding: 20px;
+    }
+
+    .input-label-group input, .input-label-group select
+    {
+        margin-left: 100px;
+        font-size: 0.9rem;
+    }
+
+    .input-label-group label 
+    {
+        font-size: 1rem;
+    }
+
+    .input-label-group select
+    {
+        padding: 5px 5px;
+        padding-top: 4px;
+    }
+
+    input[type='submit'], input[type='reset']
+    {
+        font-size: 1.1rem;
+    }
+
+    select, option 
+    {
+        font-size: 0.9rem;
+    }
+
+    footer 
+    {
+        height: 80px;
+    }
+
+    .footer-adj
+    {
+        font-size: 1.1rem;
+    }
+
+    .container
+    {
+        display: flex;
+    }
+
+    .gallery 
+    {
+        padding: 20px;
+        max-width: 450px;
+        margin: 0 auto 15px;
+    }
+
+    form
+    {
+        padding-top: 40px;
+        padding-right: 45px;
+    }
+
+    .form-section
+    {
+        padding: 15px;
+        margin-bottom: 25px;
+        border: solid 2px rgb(162, 162, 162);
+        border-radius: 10px;
+        max-width: 100%;
+    }
+
+    input[type='submit']
+    {
+        border-radius: 5px;
+        background-color: rgb(157, 250, 255);
+        color: #7D2AE8;
+        border: solid 2px rgb(122, 122, 122);
+        font-weight: bolder;
+        padding: 9px 12px 10px 12px;
+        display: block;
+        margin: 25px auto;
+        margin-bottom: 0px;
+    }
+
+    .no-error
+    {
+        font-size: 1.2rem;
+        padding: 30px;
+    }
+}
